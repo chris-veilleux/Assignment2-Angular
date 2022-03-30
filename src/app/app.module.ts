@@ -16,6 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddGameComponent } from './components/add-game/add-game.component';
 import { EditGameComponent } from './components/edit-game/edit-game.component';
 import { GamesListComponent } from './components/games-list/games-list.component';
+import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
+import { AddPromotionComponent } from './components/add-promotion/add-promotion.component';
+import { EditPromotionComponent } from './components/edit-promotion/edit-promotion.component';
 import { AddStoreComponent } from './components/add-store/add-store.component';
 import { EditStoreComponent } from './components/edit-store/edit-store.component';
 import { StoresListComponent } from './components/stores-list/stores-list.component';
@@ -32,6 +35,9 @@ import { SportsListComponent } from './components/sports-list/sports-list.compon
     AddGameComponent,
     EditGameComponent,
     GamesListComponent,
+    PromotionsListComponent,
+    AddPromotionComponent,
+    EditPromotionComponent,
     AddStoreComponent,
     EditStoreComponent,
     StoresListComponent,
