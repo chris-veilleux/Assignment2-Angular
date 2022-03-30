@@ -1,8 +1,8 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { ApiService } from '../../shared/api.service';
+import { ApiService } from './../../shared/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export interface Subject {
@@ -10,11 +10,11 @@ export interface Subject {
 }
 
 @Component({
-  selector: 'app-add-sport',
-  templateUrl: './add-sport.component.html',
-  styleUrls: ['./add-sport.component.css'],
+  selector: 'app-edit-sport',
+  templateUrl: './edit-sport.component.html',
+  styleUrls: ['./edit-sport.component.css'],
 })
-export class AddSportComponent implements OnInit {
+export class EditSportComponent implements OnInit {
   visible = true;
   selectable = true;
   removable = true;
@@ -27,18 +27,29 @@ export class AddSportComponent implements OnInit {
   SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
 
   ngOnInit() {
-    this.submitBookForm();
+    this.updateBookForm();
   }
 
   constructor(
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
+    private actRoute: ActivatedRoute,
     private sportApi: ApiService
-  ) {}
+  ) {
+    var id = this.actRoute.snapshot.paramMap.get('id');
+    this.sportApi.GetSport(id).subscribe((data) => {
+      console.log(data.subjects);
+      this.subjectArray = data.subjects;
+      this.sportForm = this.fb.group({
+        name: [data.name, [Validators.required]],
+        players: [data.players, [Validators.required]],
+      });
+    });
+  }
 
   /* Reactive book form */
-  submitBookForm() {
+  updateBookForm() {
     this.sportForm = this.fb.group({
       name: ['', [Validators.required]],
       players: ['', [Validators.required]],
@@ -80,12 +91,16 @@ export class AddSportComponent implements OnInit {
     return this.sportForm.controls[controlName].hasError(errorName);
   };
 
-  /* Submit book */
-  submitSporForm() {
-    if (this.sportForm.valid) {
-      this.sportApi.AddSport(this.sportForm.value).subscribe((res) => {
-        this.ngZone.run(() => this.router.navigateByUrl('sports-list'));
-      });
+  /* Update book */
+  updateSportForm() {
+    console.log(this.sportForm.value);
+    var id = this.actRoute.snapshot.paramMap.get('id');
+    if (window.confirm('Are you sure you want to update?')) {
+      this.sportApi
+        .UpdateSport(id, this.sportForm.value)
+        .subscribe((res) => {
+          this.ngZone.run(() => this.router.navigateByUrl('/sports-list'));
+        });
     }
   }
 }

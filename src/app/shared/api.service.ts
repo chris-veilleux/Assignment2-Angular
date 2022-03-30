@@ -9,6 +9,7 @@ import {
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
+import { Sport } from './sport';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,7 @@ export class ApiService {
   endpoint: string = 'http://localhost:8000/api/students';
   gameEndpoint: string = 'http://localhost:8000/api/games';
   storeEndpoint: string = 'http://localhost:8000/api/stores';
+  sportEndpoint: string = 'http://localhost:8000/api/sports';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) {}
@@ -136,6 +138,46 @@ export class ApiService {
     var API_URL = `${this.storeEndpoint}/delete-store/${id}`;
     return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
   }
+
+//////////////////////////////////////////////////////////
+ 
+// Add store
+  AddSport(data: Sport): Observable<any> {
+    let API_URL = `${this.sportEndpoint}/add-sport`;
+    return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
+  }
+
+  // Get all stores
+  GetSports() {
+    return this.http.get(`${this.sportEndpoint}`);
+  }
+
+  // Get stores
+  GetSport(id): Observable<any> {
+    let API_URL = `${this.sportEndpoint}/read-sport/${id}`;
+    return this.http.get(API_URL, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorMgmt)
+    );
+  }
+
+  // Update stores
+  UpdateSport(id, data): Observable<any> {
+    let API_URL = `${this.sportEndpoint}/update-sport/${id}`;
+    return this.http
+      .put(API_URL, data, { headers: this.headers })
+      .pipe(catchError(this.errorMgmt));
+  }
+
+  // Delete stores
+  DeleteSport(id): Observable<any> {
+    var API_URL = `${this.sportEndpoint}/delete-sport/${id}`;
+    return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
+  }
+
+///////////////////////////////////////////////////
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {

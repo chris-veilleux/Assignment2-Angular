@@ -19,11 +19,11 @@
           <mat-form-field class="example-full-width">
             <input
               matInput
-              placeholder="SportName"
+              placeholder="Sport Name"
               formControlName="name"
             />
             <mat-error *ngIf="handleError('name', 'required')">
-              You must provide a<strong>sport name</strong>
+              You must provide a<strong> sport name</strong>
             </mat-error>
           </mat-form-field>
   
@@ -32,10 +32,10 @@
             <input
               matInput
               placeholder="Sport Players"
-              formControlName="sport"
+              formControlName="players"
             />
             <mat-error *ngIf="handleError('players', 'required')">
-              You must provide a<strong>sport players</strong>
+              You must provide a<strong>sport player(s)</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -50,4 +50,3 @@
       </mat-card>
     </form>
   </div>
-  

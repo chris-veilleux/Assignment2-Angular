@@ -19,6 +19,7 @@ mongoose
 const studentRoute = require('./routes/student.route')
 const gameRoute = require('./routes/game.route')
 const storeRoute = require('./routes/store.route')
+const sportRoute = require('./routes/sport.route')
 
 const app = express()
 app.use(bodyParser.json())
@@ -40,6 +41,7 @@ app.use(
 app.use('/api/students', studentRoute)
 app.use('/api/games', gameRoute)
 app.use('/api/stores', storeRoute)
+app.use('/api/sports', sportRoute)
 
 // PORT
 const port = process.env.PORT || 8000
