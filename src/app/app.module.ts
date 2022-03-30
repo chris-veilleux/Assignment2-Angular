@@ -16,6 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddGameComponent } from './components/add-game/add-game.component';
 import { EditGameComponent } from './components/edit-game/edit-game.component';
 import { GamesListComponent } from './components/games-list/games-list.component';
+import { AddStoreComponent } from './components/add-store/add-store.component';
+import { EditStoreComponent } from './components/edit-store/edit-store.component';
+import { StoresListComponent } from './components/stores-list/stores-list.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { GamesListComponent } from './components/games-list/games-list.component
     AddGameComponent,
     EditGameComponent,
     GamesListComponent,
+    AddStoreComponent,
+    EditStoreComponent,
+    StoresListComponent,
   ],
   imports: [
     BrowserModule,
