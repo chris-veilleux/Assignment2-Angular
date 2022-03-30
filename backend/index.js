@@ -18,7 +18,9 @@ mongoose
 // Set up express js port
 const studentRoute = require('./routes/student.route')
 const gameRoute = require('./routes/game.route')
+const promotionRoute = require('./routes/promotion.route')
 const storeRoute = require('./routes/store.route')
+
 
 const app = express()
 app.use(bodyParser.json())
@@ -39,6 +41,7 @@ app.use(
 // RESTful API root
 app.use('/api/students', studentRoute)
 app.use('/api/games', gameRoute)
+app.use('/api/promotions', promotionRoute)
 app.use('/api/stores', storeRoute)
 
 // PORT

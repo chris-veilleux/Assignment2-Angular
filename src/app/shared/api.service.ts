@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Student } from './student';
 import { Game } from './game';
+import { Promotion } from './promotion';
 import { Store } from './store';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -10,12 +11,14 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   endpoint: string = 'http://localhost:8000/api/students';
   gameEndpoint: string = 'http://localhost:8000/api/games';
+  promotionEndpoint: string = 'http://localhost:8000/api/promotions';
   storeEndpoint: string = 'http://localhost:8000/api/stores';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -98,6 +101,21 @@ export class ApiService {
   }
 
 
+  ///////////////////////////////////////////////////////////
+  // Add promotion
+  AddPromotion(data: Promotion): Observable<any> {
+    let API_URL = `${this.promotionEndpoint}/add-promotion`;
+    return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
+  }
+
+  // Get all promotions
+  GetPromotions() {
+    return this.http.get(`${this.promotionEndpoint}`);
+  }
+
+  // Get promotions
+  GetPromotion(id): Observable<any> {
+    let API_URL = `${this.promotionEndpoint}/read-promotion/${id}`;
 /////////////////////////////////////////////////////////////////
 
 
@@ -123,6 +141,9 @@ export class ApiService {
     );
   }
 
+  // Update promotions
+  UpdatePromotion(id, data): Observable<any> {
+    let API_URL = `${this.promotionEndpoint}/update-promotion/${id}`;
   // Update stores
   UpdateStore(id, data): Observable<any> {
     let API_URL = `${this.storeEndpoint}/update-store/${id}`;
@@ -131,6 +152,9 @@ export class ApiService {
       .pipe(catchError(this.errorMgmt));
   }
 
+  // Delete promotions
+  DeletePromotion(id): Observable<any> {
+    var API_URL = `${this.promotionEndpoint}/delete-promotion/${id}`;
   // Delete stores
   DeleteStore(id): Observable<any> {
     var API_URL = `${this.storeEndpoint}/delete-store/${id}`;
