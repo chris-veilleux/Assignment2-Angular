@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddSporComponent } from './add-sportcomponent';
+import { AddSportComponent } from './add-sportcomponent';
 
-describe('AddSporComponent', () => {
-  let component: AddSporComponent;
-  let fixture: ComponentFixture<AddSporComponent>;
+describe('AddSportComponent', () => {
+  let component: AddSportComponent;
+  let fixture: ComponentFixture<AddSportComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddSporComponent ]
+      declarations: [ AddSportComponent ]
     })
     .compileComponents();
   });
