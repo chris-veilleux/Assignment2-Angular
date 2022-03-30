@@ -37,7 +37,7 @@ app.use(
 
 // RESTful API root
 app.use('/api', studentRoute)
-app.use('/api', gameRoute)
+app.use('/api/games', gameRoute)
 
 // PORT
 const port = process.env.PORT || 8000

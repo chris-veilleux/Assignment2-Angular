@@ -14,6 +14,7 @@ import {
 })
 export class ApiService {
   endpoint: string = 'http://localhost:8000/api';
+  gameEndpoint: string = 'http://localhost:8000/api/games';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) {}
@@ -58,20 +59,20 @@ export class ApiService {
 //////////////////////////////////////////////
 
 
-  // Add student
+  // Add game
   AddGame(data: Game): Observable<any> {
-    let API_URL = `${this.endpoint}/add-game`;
+    let API_URL = `${this.gameEndpoint}/add-game`;
     return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
   }
 
-  // Get all students
+  // Get all games
   GetGames() {
-    return this.http.get(`${this.endpoint}`);
+    return this.http.get(`${this.gameEndpoint}`);
   }
 
-  // Get student
+  // Get games
   GetGame(id): Observable<any> {
-    let API_URL = `${this.endpoint}/read-game/${id}`;
+    let API_URL = `${this.gameEndpoint}/read-game/${id}`;
     return this.http.get(API_URL, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};
@@ -80,17 +81,17 @@ export class ApiService {
     );
   }
 
-  // Update student
+  // Update games
   UpdateGame(id, data): Observable<any> {
-    let API_URL = `${this.endpoint}/update-game/${id}`;
+    let API_URL = `${this.gameEndpoint}/update-game/${id}`;
     return this.http
       .put(API_URL, data, { headers: this.headers })
       .pipe(catchError(this.errorMgmt));
   }
 
-  // Delete student
+  // Delete games
   DeleteGame(id): Observable<any> {
-    var API_URL = `${this.endpoint}/delete-game/${id}`;
+    var API_URL = `${this.gameEndpoint}/delete-game/${id}`;
     return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
   }
 
