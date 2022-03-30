@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Student } from './student';
 import { Game } from './game';
+import { Store } from './store';
 import { Sport } from './sport';
 import { Credit } from './credit';
 import { Observable, throwError } from 'rxjs';
@@ -15,8 +16,9 @@ import {
   providedIn: 'root',
 })
 export class ApiService {
-  endpoint: string = 'http://localhost:8000/api';
+  endpoint: string = 'http://localhost:8000/api/students';
   gameEndpoint: string = 'http://localhost:8000/api/games';
+  storeEndpoint: string = "http://localhost:8000/api/stores";
   sportEndpoint: string = 'http://localhost:8000/api/sports';
   creditEndpoint: string = 'http://localhost:8000/api/credit';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -135,6 +137,42 @@ export class ApiService {
   }
 ///////////////////////
 
+// Add store
+AddStore(data: Store): Observable<any> {
+  let API_URL = `${this.storeEndpoint}/add-store`;
+  return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
+}
+
+// Get all stores
+GetStores() {
+  return this.http.get(`${this.storeEndpoint}`);
+}
+
+// Get stores
+GetStore(id): Observable<any> {
+  let API_URL = `${this.storeEndpoint}/read-store/${id}`;
+  return this.http.get(API_URL, { headers: this.headers }).pipe(
+    map((res: Response) => {
+      return res || {};
+    }),
+    catchError(this.errorMgmt)
+  );
+}
+
+// Update stores
+UpdateStore(id, data): Observable<any> {
+  let API_URL = `${this.storeEndpoint}/update-store/${id}`;
+  return this.http
+    .put(API_URL, data, { headers: this.headers })
+    .pipe(catchError(this.errorMgmt));
+}
+
+// Delete stores
+DeleteStore(id): Observable<any> {
+  var API_URL = `${this.storeEndpoint}/delete-store/${id}`;
+  return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
+}
+
 ///////////////////////////
 AddCredit(data: Credit): Observable<any> {
   let API_URL = `${this.creditEndpoint}/add-credit`;
@@ -142,6 +180,20 @@ AddCredit(data: Credit): Observable<any> {
 }
 
 // Get all credit
+GetCredits() {
+  return this.http.get(`${this.creditEndpoint}`);
+}
+
+// Get sports
+GetCredit(id): Observable<any> {
+  let API_URL = `${this.creditEndpoint}/read-credit/${id}`;
+  return this.http.get(API_URL, { headers: this.headers }).pipe(
+    map((res: Response) => {
+      return res || {};
+    }),
+    catchError(this.errorMgmt)
+  );
+}
 
 // Update credit
 UpdateCredit(id, data): Observable<any> {
