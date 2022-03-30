@@ -19,6 +19,9 @@ import { GamesListComponent } from './components/games-list/games-list.component
 import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
 import { AddPromotionComponent } from './components/add-promotion/add-promotion.component';
 import { EditPromotionComponent } from './components/edit-promotion/edit-promotion.component';
+import { AddStoreComponent } from './components/add-store/add-store.component';
+import { EditStoreComponent } from './components/edit-store/edit-store.component';
+import { StoresListComponent } from './components/stores-list/stores-list.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { EditPromotionComponent } from './components/edit-promotion/edit-promoti
     PromotionsListComponent,
     AddPromotionComponent,
     EditPromotionComponent,
+    AddStoreComponent,
+    EditStoreComponent,
+    StoresListComponent,
   ],
   imports: [
     BrowserModule,

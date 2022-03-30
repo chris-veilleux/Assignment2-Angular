@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Student } from './student';
 import { Game } from './game';
 import { Promotion } from './promotion';
+import { Store } from './store';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import {
@@ -15,9 +16,10 @@ import {
   providedIn: 'root',
 })
 export class ApiService {
-  endpoint: string = 'http://localhost:8000/api';
+  endpoint: string = 'http://localhost:8000/api/students';
   gameEndpoint: string = 'http://localhost:8000/api/games';
   promotionEndpoint: string = 'http://localhost:8000/api/promotions';
+  storeEndpoint: string = 'http://localhost:8000/api/stores';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) {}
@@ -114,6 +116,23 @@ export class ApiService {
   // Get promotions
   GetPromotion(id): Observable<any> {
     let API_URL = `${this.promotionEndpoint}/read-promotion/${id}`;
+/////////////////////////////////////////////////////////////////
+
+
+  // Add store
+  AddStore(data: Store): Observable<any> {
+    let API_URL = `${this.storeEndpoint}/add-store`;
+    return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
+  }
+
+  // Get all stores
+  GetStores() {
+    return this.http.get(`${this.storeEndpoint}`);
+  }
+
+  // Get stores
+  GetStore(id): Observable<any> {
+    let API_URL = `${this.storeEndpoint}/read-store/${id}`;
     return this.http.get(API_URL, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};
@@ -125,6 +144,9 @@ export class ApiService {
   // Update promotions
   UpdatePromotion(id, data): Observable<any> {
     let API_URL = `${this.promotionEndpoint}/update-promotion/${id}`;
+  // Update stores
+  UpdateStore(id, data): Observable<any> {
+    let API_URL = `${this.storeEndpoint}/update-store/${id}`;
     return this.http
       .put(API_URL, data, { headers: this.headers })
       .pipe(catchError(this.errorMgmt));
@@ -133,6 +155,9 @@ export class ApiService {
   // Delete promotions
   DeletePromotion(id): Observable<any> {
     var API_URL = `${this.promotionEndpoint}/delete-promotion/${id}`;
+  // Delete stores
+  DeleteStore(id): Observable<any> {
+    var API_URL = `${this.storeEndpoint}/delete-store/${id}`;
     return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
   }
 

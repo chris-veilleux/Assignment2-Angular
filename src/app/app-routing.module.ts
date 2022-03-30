@@ -9,7 +9,9 @@ import { GamesListComponent } from './components/games-list/games-list.component
 import { AddPromotionComponent } from './components/add-promotion/add-promotion.component';
 import { EditPromotionComponent } from './components/edit-promotion/edit-promotion.component';
 import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
-
+import { AddStoreComponent } from './components/add-store/add-store.component';
+import { EditStoreComponent } from './components/edit-store/edit-store.component';
+import { StoresListComponent } from './components/stores-list/stores-list.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'add-student' },
@@ -22,6 +24,9 @@ const routes: Routes = [
   { path: 'add-promotion', component: AddPromotionComponent },
   { path: 'edit-promotion/:id', component: EditPromotionComponent },
   { path: 'promotions-list', component: PromotionsListComponent },
+  { path: 'add-store', component: AddStoreComponent },
+  { path: 'edit-store/:id', component: EditStoreComponent },
+  { path: 'stores-list', component: StoresListComponent },
 ];
 
 @NgModule({
