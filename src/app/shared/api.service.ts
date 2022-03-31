@@ -4,6 +4,7 @@ import { Game } from './game';
 import { Store } from './store';
 import { Sport } from './sport';
 import { Credit } from './credit';
+import { Promotion } from './promotion';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import {
@@ -21,6 +22,7 @@ export class ApiService {
   storeEndpoint: string = "http://localhost:8000/api/stores";
   sportEndpoint: string = 'http://localhost:8000/api/sports';
   creditEndpoint: string = 'http://localhost:8000/api/credit';
+  promotionEndpoint: string = 'http://localhost:8000/api/promotions';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) {}
@@ -213,6 +215,44 @@ export class ApiService {
   }
 
 ///////////////////////
+
+///////////////////////////////////////////////////////////
+  // Add promotion
+  AddPromotion(data: Promotion): Observable<any> {
+    let API_URL = `${this.promotionEndpoint}/add-promotion`;
+    return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
+  }
+
+  // Get all promotions
+  GetPromotions() {
+    return this.http.get(`${this.promotionEndpoint}`);
+  }
+
+  // Get promotions
+  GetPromotion(id): Observable<any> {
+    let API_URL = `${this.promotionEndpoint}/read-promotion/${id}`;
+    return this.http.get(API_URL, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorMgmt)
+    );
+  }
+
+  // Update promotions
+  UpdatePromotion(id, data): Observable<any> {
+    let API_URL = `${this.promotionEndpoint}/update-promotion/${id}`;
+    return this.http
+      .put(API_URL, data, { headers: this.headers })
+      .pipe(catchError(this.errorMgmt));
+  }
+
+  // Delete promotions
+  DeletePromotion(id): Observable<any> {
+    var API_URL = `${this.promotionEndpoint}/delete-promotion/${id}`;
+    return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
+  }
+
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {

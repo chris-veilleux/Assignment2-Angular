@@ -23,6 +23,9 @@ import { SportsListComponent } from './components/sports-list/sports-list.compon
 import { AddCreditComponent } from './components/add-credit/add-credit.component';
 import { EditCreditComponent } from './components/edit-credit/edit-credit.component';
 import { CreditListComponent } from './components/credit-list/credit-list.component';
+import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
+import { AddPromotionComponent } from './components/add-promotion/add-promotion.component';
+import { EditPromotionComponent } from './components/edit-promotion/edit-promotion.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { CreditListComponent } from './components/credit-list/credit-list.compon
     AddCreditComponent,
     EditCreditComponent,
     CreditListComponent,
+    PromotionsListComponent,
+    AddPromotionComponent,
+    EditPromotionComponent,
   ],
   imports: [
     BrowserModule,
