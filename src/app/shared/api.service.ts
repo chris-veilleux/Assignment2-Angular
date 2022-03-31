@@ -23,6 +23,7 @@ export class ApiService {
   sportEndpoint: string = 'http://localhost:8000/api/sports';
   creditEndpoint: string = 'http://localhost:8000/api/credit';
   promotionEndpoint: string = 'http://localhost:8000/api/promotions';
+
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) {}
@@ -176,8 +177,7 @@ export class ApiService {
     var API_URL = `${this.storeEndpoint}/delete-store/${id}`;
     return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
   }
-
-  ////////////////////////////////////////
+///////////////////////////////////////////
 
   AddCredit(data: Credit): Observable<any> {
     let API_URL = `${this.creditEndpoint}/add-credit`;
@@ -253,6 +253,7 @@ export class ApiService {
     return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
   }
 
+////////////////////////////////////////
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {

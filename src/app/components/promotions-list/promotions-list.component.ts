@@ -20,7 +20,6 @@ export class PromotionsListComponent implements OnInit {
     'percent_discount',
   ];
 
-
   
   constructor(private promotionApi: ApiService) {
     this.promotionApi.GetPromotions().subscribe((data) => {

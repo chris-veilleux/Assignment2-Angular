@@ -27,9 +27,12 @@
             </mat-error>
           </mat-form-field>
   
-          <!-- Email -->
+          <!-- percent discount -->
           <mat-form-field class="example-full-width">
             <input
+              type="number"
+              min="0"
+              max="100"
               matInput
               placeholder="Promotion Percent Discount"
               formControlName="percent_discount"

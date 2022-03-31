@@ -19,11 +19,11 @@
           <mat-form-field class="example-full-width">
             <input
               matInput
-              placeholder="Store name"
+              placeholder="Stadium name"
               formControlName="name"
             />
             <mat-error *ngIf="handleError('name', 'required')">
-              You must provide a <strong>store name</strong>
+              You must provide a <strong>stadium name</strong>
             </mat-error>
           </mat-form-field>
   
@@ -31,7 +31,7 @@
           <mat-form-field class="example-full-width">
             <input
               matInput
-              placeholder="Store URL"
+              placeholder="Stadium Website URL"
               formControlName="url"
             />
             <mat-error *ngIf="handleError('url', 'required')">
@@ -39,7 +39,7 @@
             </mat-error>
           </mat-form-field>
 
-          <!-- URL -->
+          <!-- Location -->
           <mat-form-field class="example-full-width">
             <input
               matInput
