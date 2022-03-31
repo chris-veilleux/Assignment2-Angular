@@ -28,7 +28,7 @@
           </mat-form-field>
   
           <!-- players-->
-          <mat-form-field class="example-full-width">
+          <!-- <mat-form-field class="example-full-width">
             <input
               matInput
               placeholder="Sport Players"
@@ -37,7 +37,35 @@
             <mat-error *ngIf="handleError('players', 'required')">
               You must provide a<strong>sport player(s)</strong>
             </mat-error>
+          </mat-form-field> -->
+
+          <mat-form-field class="multiple-items">
+            <mat-chip-list #chipList>
+              <mat-chip
+                *ngFor="let playerArray of playerArray"
+                [selectable]="selectable"
+                [removable]="removable"
+                (removed)="remove(playerArray)"
+              >
+                {{ playerArray.name }}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input
+                placeholder="Add Player"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)"
+              />
+            </mat-chip-list>
+            <i
+              class="material-icons tooltip-info"
+              matTooltip="Enter player name and press enter to add the player"
+            >
+              info
+            </i>
           </mat-form-field>
+
         </div>
       </mat-card>
       <!-- Submit & Reset -->

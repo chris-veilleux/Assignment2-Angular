@@ -8,10 +8,10 @@ let Credit = new Schema(
       type: String,
     },
     number: {
-      type: String,
+      type: Number,
     },
     balance: {
-        type: String,
+      type: Number,
     },
   },
   {

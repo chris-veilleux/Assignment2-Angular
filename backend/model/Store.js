@@ -5,10 +5,13 @@ const Schema = mongoose.Schema
 let Store = new Schema(
   {
     name: {
-      type: String,
+      type: String
     },
     url: {
-      type: String,
+      type: String
+    },
+    location: {
+      type: String
     },
   },
   {

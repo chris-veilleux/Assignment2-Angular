@@ -8,7 +8,7 @@ let Sport = new Schema(
       type: String,
     },
     players: {
-      type: String,
+      type: Array,
     },
   },
   {

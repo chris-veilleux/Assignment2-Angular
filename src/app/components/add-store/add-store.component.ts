@@ -41,6 +41,7 @@ export class AddStoreComponent implements OnInit {
     this.storeForm = this.fb.group({
       name: ['', [Validators.required]],
       url: ['', [Validators.required]],
+      location: ['', [Validators.required]],
     });
   }
 

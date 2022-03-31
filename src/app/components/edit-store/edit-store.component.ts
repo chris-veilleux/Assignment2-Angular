@@ -43,6 +43,7 @@ export class EditStoreComponent implements OnInit {
       this.storeForm = this.fb.group({
         name: [data.name, [Validators.required]],
         url: [data.url, [Validators.required]],
+        location: [data.location, [Validators.required]],
       });
     });
   }
@@ -52,6 +53,7 @@ export class EditStoreComponent implements OnInit {
     this.storeForm = this.fb.group({
       name: ['', [Validators.required]],
       url: ['', [Validators.required]],
+      location: ['', [Validators.required]],
     });
   }
 

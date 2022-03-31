@@ -23,11 +23,11 @@
               formControlName="name"
             />
             <mat-error *ngIf="handleError('name', 'required')">
-              You must provide a<strong>store name</strong>
+              You must provide a <strong>store name</strong>
             </mat-error>
           </mat-form-field>
   
-          <!-- Email -->
+          <!-- URL -->
           <mat-form-field class="example-full-width">
             <input
               matInput
@@ -35,9 +35,22 @@
               formControlName="url"
             />
             <mat-error *ngIf="handleError('url', 'required')">
-              You must provide a<strong>URL</strong>
+              You must provide a <strong>URL</strong>
             </mat-error>
           </mat-form-field>
+
+          <!-- URL -->
+          <mat-form-field class="example-full-width">
+            <input
+              matInput
+              placeholder="Location"
+              formControlName="location"
+            />
+            <mat-error *ngIf="handleError('location', 'required')">
+              You must provide a <strong>location</strong>
+            </mat-error>
+          </mat-form-field>
+
         </div>
     </mat-card>
 

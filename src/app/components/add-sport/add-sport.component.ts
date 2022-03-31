@@ -23,7 +23,7 @@ export class AddSportComponent implements OnInit {
   @ViewChild('resetSportForm') myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   sportForm: FormGroup;
-  subjectArray: Subject[] = [];
+  playerArray: Subject[] = [];
   SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class AddSportComponent implements OnInit {
   submitBookForm() {
     this.sportForm = this.fb.group({
       name: ['', [Validators.required]],
-      players: ['', [Validators.required]],
+      players: [this.playerArray],
     });
   }
 
@@ -50,8 +50,8 @@ export class AddSportComponent implements OnInit {
     const input = event.input;
     const value = event.value;
     // Add language
-    if ((value || '').trim() && this.subjectArray.length < 5) {
-      this.subjectArray.push({ name: value.trim() });
+    if ((value || '').trim() && this.playerArray.length < 5) {
+      this.playerArray.push({ name: value.trim() });
     }
     // Reset the input value
     if (input) {
@@ -61,9 +61,9 @@ export class AddSportComponent implements OnInit {
 
   /* Remove dynamic languages */
   remove(subject: Subject): void {
-    const index = this.subjectArray.indexOf(subject);
+    const index = this.playerArray.indexOf(subject);
     if (index >= 0) {
-      this.subjectArray.splice(index, 1);
+      this.playerArray.splice(index, 1);
     }
   }
 

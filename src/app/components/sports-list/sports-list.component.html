@@ -22,8 +22,8 @@
             </ng-container>
 
             <ng-container matColumnDef="players">
-                <th mat-header-cell *matHeaderCellDef>Players</th>
-                <td mat-cell *matCellDef="let element">{{ element.players }}</td>
+                <th mat-header-cell *matHeaderCellDef>Notable Player</th>
+                <td mat-cell *matCellDef="let element">{{ element.players[0].name }}</td>
             </ng-container>
 
             <ng-container matColumnDef="action">

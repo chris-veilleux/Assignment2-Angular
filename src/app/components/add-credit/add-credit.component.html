@@ -23,25 +23,29 @@
               formControlName="name"
             />
             <mat-error *ngIf="handleError('name', 'required')">
-              You must provide a<strong>credit name</strong>
+              You must provide a <strong>credit name</strong>
             </mat-error>
           </mat-form-field>
   
           <!-- number -->
           <mat-form-field class="example-full-width">
             <input
+              type="number"
+              min="0"
               matInput
               placeholder="Credit Card Number"
               formControlName="number"
             />
             <mat-error *ngIf="handleError('number', 'required')">
-              You must provide a<strong>card number</strong>
+              You must provide a <strong>card number</strong>
             </mat-error>
           </mat-form-field>
 
           <!-- balance -->
           <mat-form-field class="example-full-width">
             <input
+              type="number"
+              min="0"
               matInput
               placeholder="Credit Card Balance"
               formControlName="balance"

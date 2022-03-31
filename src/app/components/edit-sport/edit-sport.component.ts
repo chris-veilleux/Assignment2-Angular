@@ -23,7 +23,7 @@ export class EditSportComponent implements OnInit {
   @ViewChild('resetSportForm') myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   sportForm: FormGroup;
-  subjectArray: Subject[] = [];
+  playerArray: Subject[] = [];
   SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class EditSportComponent implements OnInit {
     var id = this.actRoute.snapshot.paramMap.get('id');
     this.sportApi.GetSport(id).subscribe((data) => {
       console.log(data.subjects);
-      this.subjectArray = data.subjects;
+      this.playerArray = data.players;
       this.sportForm = this.fb.group({
         name: [data.name, [Validators.required]],
         players: [data.players, [Validators.required]],
@@ -61,8 +61,8 @@ export class EditSportComponent implements OnInit {
     const input = event.input;
     const value = event.value;
     // Add language
-    if ((value || '').trim() && this.subjectArray.length < 5) {
-      this.subjectArray.push({ name: value.trim() });
+    if ((value || '').trim() && this.playerArray.length < 5) {
+      this.playerArray.push({ name: value.trim() });
     }
     // Reset the input value
     if (input) {
@@ -72,9 +72,9 @@ export class EditSportComponent implements OnInit {
 
   /* Remove dynamic languages */
   remove(subject: Subject): void {
-    const index = this.subjectArray.indexOf(subject);
+    const index = this.playerArray.indexOf(subject);
     if (index >= 0) {
-      this.subjectArray.splice(index, 1);
+      this.playerArray.splice(index, 1);
     }
   }
 

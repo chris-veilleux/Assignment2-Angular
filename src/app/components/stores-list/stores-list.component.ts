@@ -18,6 +18,7 @@ export class StoresListComponent implements OnInit {
     '_id',
     'name',
     'url',
+    'location',
   ];
 
   constructor(private storeApi: ApiService) {
