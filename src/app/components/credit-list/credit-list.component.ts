@@ -24,7 +24,7 @@ export class CreditListComponent implements OnInit {
 
   
   constructor(private creditApi: ApiService) {
-    this.creditApi.GetCredit().subscribe((data) => {
+    this.creditApi.GetCredits().subscribe((data) => {
       this.CreditData = data;
       this.dataSource = new MatTableDataSource<Credit>(this.CreditData);
       setTimeout(() => {

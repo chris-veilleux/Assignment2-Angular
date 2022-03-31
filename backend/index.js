@@ -20,7 +20,7 @@ const studentRoute = require('./routes/student.route')
 const gameRoute = require('./routes/game.route')
 const storeRoute = require('./routes/store.route')
 const sportRoute = require('./routes/sport.route')
-
+const creditRoute = require('./routes/credit.route')
 
 const app = express()
 app.use(bodyParser.json())
@@ -38,11 +38,12 @@ app.use(
   ),
 )
 
-// RESTful API root
+// RESTful API roots
 app.use('/api/students', studentRoute)
 app.use('/api/games', gameRoute)
 app.use('/api/stores', storeRoute)
 app.use('/api/sports', sportRoute)
+app.use('/api/credit', creditRoute)
 
 // PORT
 const port = process.env.PORT || 8000

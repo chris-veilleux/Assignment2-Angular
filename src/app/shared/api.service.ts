@@ -16,7 +16,7 @@ import {
   providedIn: 'root',
 })
 export class ApiService {
-  endpoint: string = 'http://localhost:8000/api/students';
+  studentEndpoint: string = 'http://localhost:8000/api/students';
   gameEndpoint: string = 'http://localhost:8000/api/games';
   storeEndpoint: string = "http://localhost:8000/api/stores";
   sportEndpoint: string = 'http://localhost:8000/api/sports';
@@ -25,20 +25,22 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
+/////////////////////////////////////////
+
   // Add student
   AddStudent(data: Student): Observable<any> {
-    let API_URL = `${this.endpoint}/add-student`;
+    let API_URL = `${this.studentEndpoint}/add-student`;
     return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
   }
 
   // Get all students
   GetStudents() {
-    return this.http.get(`${this.endpoint}`);
+    return this.http.get(`${this.studentEndpoint}`);
   }
 
   // Get student
   GetStudent(id): Observable<any> {
-    let API_URL = `${this.endpoint}/read-student/${id}`;
+    let API_URL = `${this.studentEndpoint}/read-student/${id}`;
     return this.http.get(API_URL, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};
@@ -49,7 +51,7 @@ export class ApiService {
 
   // Update student
   UpdateStudent(id, data): Observable<any> {
-    let API_URL = `${this.endpoint}/update-student/${id}`;
+    let API_URL = `${this.studentEndpoint}/update-student/${id}`;
     return this.http
       .put(API_URL, data, { headers: this.headers })
       .pipe(catchError(this.errorMgmt));
@@ -57,13 +59,11 @@ export class ApiService {
 
   // Delete student
   DeleteStudent(id): Observable<any> {
-    var API_URL = `${this.endpoint}/delete-student/${id}`;
+    var API_URL = `${this.studentEndpoint}/delete-student/${id}`;
     return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
   }
 
-
 //////////////////////////////////////////////
-
 
   // Add game
   AddGame(data: Game): Observable<any> {
@@ -100,7 +100,9 @@ export class ApiService {
     var API_URL = `${this.gameEndpoint}/delete-game/${id}`;
     return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
   }
-///////////////////////////
+
+//////////////////////////////////
+
   AddSport(data: Sport): Observable<any> {
     let API_URL = `${this.sportEndpoint}/add-sport`;
     return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
@@ -137,78 +139,81 @@ export class ApiService {
   }
 ///////////////////////
 
-// Add store
-AddStore(data: Store): Observable<any> {
-  let API_URL = `${this.storeEndpoint}/add-store`;
-  return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
-}
+  // Add store
+  AddStore(data: Store): Observable<any> {
+    let API_URL = `${this.storeEndpoint}/add-store`;
+    return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
+  }
 
-// Get all stores
-GetStores() {
-  return this.http.get(`${this.storeEndpoint}`);
-}
+  // Get all stores
+  GetStores() {
+    return this.http.get(`${this.storeEndpoint}`);
+  }
 
-// Get stores
-GetStore(id): Observable<any> {
-  let API_URL = `${this.storeEndpoint}/read-store/${id}`;
-  return this.http.get(API_URL, { headers: this.headers }).pipe(
-    map((res: Response) => {
-      return res || {};
-    }),
-    catchError(this.errorMgmt)
-  );
-}
+  // Get stores
+  GetStore(id): Observable<any> {
+    let API_URL = `${this.storeEndpoint}/read-store/${id}`;
+    return this.http.get(API_URL, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorMgmt)
+    );
+  }
 
-// Update stores
-UpdateStore(id, data): Observable<any> {
-  let API_URL = `${this.storeEndpoint}/update-store/${id}`;
-  return this.http
-    .put(API_URL, data, { headers: this.headers })
-    .pipe(catchError(this.errorMgmt));
-}
+  // Update stores
+  UpdateStore(id, data): Observable<any> {
+    let API_URL = `${this.storeEndpoint}/update-store/${id}`;
+    return this.http
+      .put(API_URL, data, { headers: this.headers })
+      .pipe(catchError(this.errorMgmt));
+  }
 
-// Delete stores
-DeleteStore(id): Observable<any> {
-  var API_URL = `${this.storeEndpoint}/delete-store/${id}`;
-  return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
-}
+  // Delete stores
+  DeleteStore(id): Observable<any> {
+    var API_URL = `${this.storeEndpoint}/delete-store/${id}`;
+    return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
+  }
 
-///////////////////////////
-AddCredit(data: Credit): Observable<any> {
-  let API_URL = `${this.creditEndpoint}/add-credit`;
-  return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
-}
+  ////////////////////////////////////////
 
-// Get all credit
-GetCredits() {
-  return this.http.get(`${this.creditEndpoint}`);
-}
+  AddCredit(data: Credit): Observable<any> {
+    let API_URL = `${this.creditEndpoint}/add-credit`;
+    return this.http.post(API_URL, data).pipe(catchError(this.errorMgmt));
+  }
 
-// Get sports
-GetCredit(id): Observable<any> {
-  let API_URL = `${this.creditEndpoint}/read-credit/${id}`;
-  return this.http.get(API_URL, { headers: this.headers }).pipe(
-    map((res: Response) => {
-      return res || {};
-    }),
-    catchError(this.errorMgmt)
-  );
-}
+  // Get all credit
+  GetCredits() {
+    return this.http.get(`${this.creditEndpoint}`);
+  }
 
-// Update credit
-UpdateCredit(id, data): Observable<any> {
-  let API_URL = `${this.creditEndpoint}/update-credit/${id}`;
-  return this.http
-    .put(API_URL, data, { headers: this.headers })
-    .pipe(catchError(this.errorMgmt));
-}
+  // Get sports
+  GetCredit(id): Observable<any> {
+    let API_URL = `${this.creditEndpoint}/read-credit/${id}`;
+    return this.http.get(API_URL, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {};
+      }),
+      catchError(this.errorMgmt)
+    );
+  }
 
-// Delete credit
-DeleteCredit(id): Observable<any> {
-  var API_URL = `${this.creditEndpoint}/delete-credit/${id}`;
-  return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
-}
+  // Update credit
+  UpdateCredit(id, data): Observable<any> {
+    let API_URL = `${this.creditEndpoint}/update-credit/${id}`;
+    return this.http
+      .put(API_URL, data, { headers: this.headers })
+      .pipe(catchError(this.errorMgmt));
+  }
+
+  // Delete credit
+  DeleteCredit(id): Observable<any> {
+    var API_URL = `${this.creditEndpoint}/delete-credit/${id}`;
+    return this.http.delete(API_URL).pipe(catchError(this.errorMgmt));
+  }
+
 ///////////////////////
+
   // Error handling
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';

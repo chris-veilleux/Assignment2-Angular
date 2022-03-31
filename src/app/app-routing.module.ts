@@ -12,6 +12,9 @@ import { StoresListComponent } from './components/stores-list/stores-list.compon
 import { AddSportComponent } from './components/add-sport/add-sport.component';
 import { EditSportComponent } from './components/edit-sport/edit-sport.component';
 import { SportsListComponent } from './components/sports-list/sports-list.component';
+import { AddCreditComponent } from './components/add-credit/add-credit.component';
+import { EditCreditComponent } from './components/edit-credit/edit-credit.component';
+import { CreditListComponent } from './components/credit-list/credit-list.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'add-student' },
@@ -27,6 +30,9 @@ const routes: Routes = [
   { path: 'add-sport', component: AddSportComponent },
   { path: 'edit-sport/:id', component: EditSportComponent },
   { path: 'sports-list', component: SportsListComponent },
+  { path: 'add-credit', component: AddCreditComponent },
+  { path: 'edit-credit/:id', component: EditCreditComponent },
+  { path: 'credit-list', component: CreditListComponent },
 ];
 
 @NgModule({

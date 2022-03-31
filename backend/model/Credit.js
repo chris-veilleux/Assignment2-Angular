@@ -12,7 +12,7 @@ let Credit = new Schema(
     },
     balance: {
         type: String,
-      },
+    },
   },
   {
     collection: 'credit',
