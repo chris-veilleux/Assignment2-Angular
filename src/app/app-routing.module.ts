@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { HomeComponent } from './components/home/home.component';
+
 // import Student Components
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { EditStudentComponent } from './components/edit-student/edit-student.component';
@@ -32,7 +34,8 @@ import { EditPromotionComponent } from './components/edit-promotion/edit-promoti
 import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'add-student' },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'home', component: HomeComponent},
 
   { path: 'add-student', component: AddStudentComponent },
   { path: 'edit-student/:id', component: EditStudentComponent },

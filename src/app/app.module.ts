@@ -31,6 +31,7 @@ import { CreditListComponent } from './components/credit-list/credit-list.compon
 import { AddPromotionComponent } from './components/add-promotion/add-promotion.component';
 import { EditPromotionComponent } from './components/edit-promotion/edit-promotion.component';
 import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { PromotionsListComponent } from './components/promotions-list/promotions
     AddPromotionComponent,
     EditPromotionComponent,
     PromotionsListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary" class="header">
-  <div>Student Records</div>
+  <div>COMP 1073 ~ Assignment 2</div>
   <span class="nav-tool-items">
     <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
   </span>
@@ -16,13 +16,23 @@
     [fixedTopGap]
   >
     <mat-nav-list>
+      <a mat-list-item routerLinkActive="active" routerLink="/">
+        <mat-icon>home</mat-icon> Home
+      </a>
+<!-- 
       <a mat-list-item routerLinkActive="active" routerLink="/add-student">
         <mat-icon>add</mat-icon> Add Student
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/students-list">
         <mat-icon>format_list_bulleted</mat-icon> View Students
-      </a>
+      </a> -->
 
+      <a mat-list-item routerLinkActive="active" routerLink="/add-sport">
+        <mat-icon>add</mat-icon> Add Sport
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/sports-list">
+        <mat-icon>format_list_bulleted</mat-icon> View Sports
+      </a>
 
       <a mat-list-item routerLinkActive="active" routerLink="/add-game">
         <mat-icon>add</mat-icon> Add Game
@@ -31,14 +41,12 @@
         <mat-icon>format_list_bulleted</mat-icon> View Games
       </a>
 
-
-      <a mat-list-item routerLinkActive="active" routerLink="/add-sport">
-        <mat-icon>add</mat-icon> Add Sport
+      <a mat-list-item routerLinkActive="active" routerLink="/add-store">
+        <mat-icon>add</mat-icon> Add Stadium
       </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/sports-list">
-        <mat-icon>format_list_bulleted</mat-icon> View Sport
+      <a mat-list-item routerLinkActive="active" routerLink="/stores-list">
+        <mat-icon>format_list_bulleted</mat-icon> View Stadiums
       </a>
-
 
       <a mat-list-item routerLinkActive="active" routerLink="/add-credit">
         <mat-icon>add</mat-icon> Add Credit Card
@@ -46,15 +54,6 @@
       <a mat-list-item routerLinkActive="active" routerLink="/credit-list">
         <mat-icon>format_list_bulleted</mat-icon> View Credit Cards
       </a>
-
-
-      <a mat-list-item routerLinkActive="active" routerLink="/add-store">
-        <mat-icon>add</mat-icon> Add Stadium
-      </a>
-      <a mat-list-item routerLinkActive="active" routerLink="/stores-list">
-        <mat-icon>format_list_bulleted</mat-icon> View Stadium
-      </a>
-
 
       <a mat-list-item routerLinkActive="active" routerLink="/add-promotion">
         <mat-icon>add</mat-icon> Add Promotion

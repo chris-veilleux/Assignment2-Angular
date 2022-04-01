@@ -33,11 +33,11 @@
               type="number"
               min="0"
               matInput
-              placeholder="Credit Card Number"
+              placeholder="Number of these cards registered"
               formControlName="number"
             />
             <mat-error *ngIf="handleError('number', 'required')">
-              You must provide a <strong>card number</strong>
+              You must provide an <strong>amount number</strong>
             </mat-error>
           </mat-form-field>
 
@@ -47,11 +47,11 @@
               type="number"
               min="0"
               matInput
-              placeholder="Credit Card Balance"
+              placeholder="Extra Percentage Charged"
               formControlName="balance"
             />
             <mat-error *ngIf="handleError('balance', 'required')">
-              You must provide a<strong>card balance</strong>
+              You must provide a <strong>percentage</strong>
             </mat-error>
           </mat-form-field>
         </div>
