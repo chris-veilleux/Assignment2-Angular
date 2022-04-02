@@ -34,7 +34,7 @@ export class PromotionsListComponent implements OnInit {
   ngOnInit() {}
 
   deletePromotion(index: number, e) {
-    if (window.confirm('Are you sure')) {
+    if (window.confirm('Are you sure you want to delete this promotion?')) {
       const data = this.dataSource.data;
       data.splice(
         this.paginator.pageIndex * this.paginator.pageSize + index,

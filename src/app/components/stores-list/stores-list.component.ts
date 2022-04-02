@@ -34,7 +34,7 @@ export class StoresListComponent implements OnInit {
   ngOnInit() {}
 
   deleteStore(index: number, e) {
-    if (window.confirm('Are you sure')) {
+    if (window.confirm('Are you sure you want to delete this stadium?')) {
       const data = this.dataSource.data;
       data.splice(
         this.paginator.pageIndex * this.paginator.pageSize + index,

@@ -1,6 +1,6 @@
 <!-- Title group  -->
 <div class="title-group">
-    <h1 class="mat-h1">Add Sport</h1>
+    <h1 class="mat-h1">Edit Sport</h1>
     <mat-divider fxFlex="1 0"></mat-divider>
   </div>
   
@@ -27,16 +27,33 @@
           </mat-form-field>
   
           <!-- Players -->
-          <mat-form-field class="example-full-width">
-            <input
-              matInput
-              placeholder="Sport Players"
-              formControlName="players"
-            />
-            <mat-error *ngIf="handleError('players', 'required')">
-              You must provide a<strong>sport players</strong>
-            </mat-error>
+          <mat-form-field class="multiple-items">
+            <mat-chip-list #chipList>
+              <mat-chip
+                *ngFor="let playerArray of playerArray"
+                [selectable]="selectable"
+                [removable]="removable"
+                (removed)="remove(playerArray)"
+              >
+                {{ playerArray.name }}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input
+                placeholder="Add Player"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)"
+              />
+            </mat-chip-list>
+            <i
+              class="material-icons tooltip-info"
+              matTooltip="Enter player name and press enter to add subjects"
+            >
+              info
+            </i>
           </mat-form-field>
+
         </div>
       </mat-card>
   

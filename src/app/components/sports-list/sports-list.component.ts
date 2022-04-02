@@ -35,7 +35,7 @@ export class SportsListComponent implements OnInit {
   ngOnInit() {}
 
   deleteSport(index: number, e) {
-    if (window.confirm('Are you sure')) {
+    if (window.confirm('Are you sure you want to delete this sport?')) {
       const data = this.dataSource.data;
       data.splice(
         this.paginator.pageIndex * this.paginator.pageSize + index,

@@ -35,7 +35,7 @@ export class GamesListComponent implements OnInit {
   ngOnInit() {}
 
   deleteGame(index: number, e) {
-    if (window.confirm('Are you sure')) {
+    if (window.confirm('Are you sure you want to delete this game?')) {
       const data = this.dataSource.data;
       data.splice(
         this.paginator.pageIndex * this.paginator.pageSize + index,

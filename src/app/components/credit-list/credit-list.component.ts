@@ -36,7 +36,7 @@ export class CreditListComponent implements OnInit {
   ngOnInit() {}
 
   deleteCredit(index: number, e) {
-    if (window.confirm('Are you sure')) {
+    if (window.confirm('Are you sure you want to delete this credit card?')) {
       const data = this.dataSource.data;
       data.splice(
         this.paginator.pageIndex * this.paginator.pageSize + index,

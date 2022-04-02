@@ -43,7 +43,7 @@ export class EditPromotionComponent implements OnInit {
       this.subjectArray = data.subjects;
       this.promotionForm = this.fb.group({
         name: [data.name, [Validators.required]],
-        genre: [data.genre, [Validators.required]],
+        percent_discount: [data.percent_discount, [Validators.required]],
       });
     });
   }
@@ -52,7 +52,7 @@ export class EditPromotionComponent implements OnInit {
   updateBookForm() {
     this.promotionForm = this.fb.group({
       name: ['', [Validators.required]],
-      genre: ['', [Validators.required]],
+      percent_discount: ['', [Validators.required]],
     });
   }
 

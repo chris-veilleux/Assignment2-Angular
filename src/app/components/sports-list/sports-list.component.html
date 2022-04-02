@@ -1,7 +1,7 @@
 <!-- Title group  -->
 <div class="title-group">
     <h1 class="mat-h1">Sports List</h1>
-    
+    <p>Click on the Sport ID to edit it, and the Sport Name to delete it.</p>
 </div>
 
 <p *ngIf="SportData.length <= 0" class="no-data">
@@ -13,12 +13,12 @@
         <table mat-table [dataSource]="dataSource">
             <ng-container matColumnDef="_id">
                 <th mat-header-cell *matHeaderCellDef>Sport ID</th>
-                <td mat-cell *matCellDef="let element">{{ element._id }}</td>
+                <td mat-cell *matCellDef="let element"><a [routerLink]="['/edit-sport/', element._id]">{{ element._id }}</a></td>
             </ng-container>
 
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef>Sport Name</th>
-                <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                <td mat-cell *matCellDef="let element; let i = index"><a (click)="deleteSport(i, element)">{{ element.name }}</a></td>
             </ng-container>
 
             <ng-container matColumnDef="players">
