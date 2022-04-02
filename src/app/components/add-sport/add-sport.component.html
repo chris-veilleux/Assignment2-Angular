@@ -12,7 +12,6 @@
       #resetSportForm="ngForm"
       novalidate
     >
-      <!-- Left block -->
       <mat-card>
         <div class="controlers-wrapper">
           <!-- Name -->
@@ -28,17 +27,6 @@
           </mat-form-field>
   
           <!-- players-->
-          <!-- <mat-form-field class="example-full-width">
-            <input
-              matInput
-              placeholder="Sport Players"
-              formControlName="players"
-            />
-            <mat-error *ngIf="handleError('players', 'required')">
-              You must provide a<strong>sport player(s)</strong>
-            </mat-error>
-          </mat-form-field> -->
-
           <mat-form-field class="multiple-items">
             <mat-chip-list #chipList>
               <mat-chip
