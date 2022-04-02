@@ -1,5 +1,5 @@
 <h1><u>Ticket Master</u></h1>
-<h2>Why did me choose this theme?</h2>
+<h2>Why did we choose this theme?</h2>
 
 <br>
 
