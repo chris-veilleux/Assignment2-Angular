@@ -1,10 +1,24 @@
-<h1>AngularMaterialMeanStack</h1>
-<h2>eCommerce Theme</h2>
-<h4>-Store</h4>
-<h4>-Sport</h4>
-<h4>-Game</h4>
-<h4>-Credit Card</h4>
-<h4>-Promotion</h4>
+<h1><u>Ticket Master</u></h1>
+<h2>Why did me choose this theme?</h2>
+
 <br>
-<p>We chose this theme because eCommerce is very open with a wide variety of topics to choose from.</p>
-[https://www.positronx.io/angular-mean-stack-tutorial-build-crud-angular-material/](https://www.positronx.io/angular-mean-stack-tutorial-build-crud-angular-material/)
+
+<p>We chose Ticket Master as our theme because it is an excellent example of E-commerce, which is a evergrowing idea of business that is being used by more and more companies everyday that translates really well into our assignment goals.</p>
+
+<br>
+
+<h2>Tables</h2>
+<h4>-Sport</h4>
+<!-- image here -->
+
+<h4>-Game</h4>
+<!-- image here -->
+
+<h4>-Credit Card</h4>
+<!-- image here -->
+
+<h4>-Promotion</h4>
+<!-- image here -->
+
+<h4>-Stadium</h4>
+<!-- image here -->
