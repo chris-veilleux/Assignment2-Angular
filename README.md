@@ -8,17 +8,17 @@
 <br>
 
 <h2>Tables</h2>
-<h4>-Sport</h4>
+<h3>-Sport</h4>
 <!-- image here -->
 
-<h4>-Game</h4>
+<h3>-Game</h3>
 <!-- image here -->
 
-<h4>-Credit Card</h4>
+<h3>-Credit Card</h3>
 <!-- image here -->
 
-<h4>-Promotion</h4>
+<h3>-Promotion</h3>
 <!-- image here -->
 
-<h4>-Stadium</h4>
+<h3>-Stadium</h3>
 <!-- image here -->
